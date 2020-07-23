@@ -1,6 +1,7 @@
 package uk.gov.hmcts.reform.professionalapi.service.impl;
 
 import static uk.gov.hmcts.reform.professionalapi.controller.constants.ProfessionalApiGeneratorConstants.ERROR_MESSAGE_UP_FAILED;
+import static uk.gov.hmcts.reform.professionalapi.controller.constants.ProfessionalApiGeneratorConstants.ERROR_MESSAGE_USER_MUST_BE_ACTIVE;
 import static uk.gov.hmcts.reform.professionalapi.util.JsonFeignResponseUtil.toResponseEntity;
 import static uk.gov.hmcts.reform.professionalapi.util.RefDataUtil.filterUsersByStatus;
 import static uk.gov.hmcts.reform.professionalapi.util.RefDataUtil.setOrgIdInGetUserResponse;
@@ -231,7 +232,7 @@ public class ProfessionalUserServiceImpl implements ProfessionalUserService {
         }
 
         if (newUserResponse == null || !IdamStatus.ACTIVE.name().equalsIgnoreCase(newUserResponse.getIdamStatus())) {
-            throw new AccessDeniedException("User status must be Active to perform this operation");
+            throw new AccessDeniedException(ERROR_MESSAGE_USER_MUST_BE_ACTIVE);
         }
     }
 }
