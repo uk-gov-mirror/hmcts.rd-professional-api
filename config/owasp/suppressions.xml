@@ -15,4 +15,11 @@
         <cve>CVE-2007-1651</cve>
         <cve>CVE-2007-1652</cve>
     </suppress>
+    <suppress>
+        <notes><![CDATA[
+    file name: tomcat-embed*.jar
+    ]]></notes>
+        <packageUrl regex="true">^pkg:maven/org\.apache\.tomcat\*.*$</packageUrl>
+        <cve>CVE-2020-13943</cve>
+    </suppress>
 </suppressions>
